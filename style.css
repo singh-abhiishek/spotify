@@ -17,6 +17,7 @@ body{
     width: 75vw;
     padding: 5px;
     margin: 5px 0;
+    position: relative;
 }
 
 .logo{
@@ -53,7 +54,6 @@ body{
     position: absolute;
     bottom: 0;
     padding-bottom: 8px;
-    
 }
 .footer a{
     color: rgb(128, 128, 128);
@@ -63,19 +63,38 @@ body{
 .header{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #212121;
-    padding: 11px;
+    padding: 6px;
 }
 
-.buttons > *{
-    padding: 11px;
-}
-
-.buttons > :nth-child(1){
-    background-color: black;
-    color: #aeaeae;
+.btn{
+    border: none;
+    outline: none;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.signupBtn{   
+    background-color: #212121;
+    color: #aeaeae;   
+    padding: 9px;
+    border-radius: 11px; 
+}
+.signupBtn:hover{
+    color: white;
+    background-color: black;
+    /* font-size: 16px; */
+}
+.loginBtn{    
+    background-color: white;
+    color: black;
+    padding: 9px 9px;
+    border-radius:11px;
+    margin-left: 5px;
+}
+.loginBtn:hover{
+    background-color: rgb(174, 174, 174);
 }
 
 .spotifyPlaylists > h1{
@@ -89,6 +108,8 @@ body{
     flex-wrap: wrap;
     gap: 10px;
     margin: 25px;
+    overflow-y: scroll;
+    max-height: 66vh;
 }
 .card{
     width: 165px;
@@ -113,4 +134,60 @@ body{
 .card p{
     font-size: 13px;
     color: #aeaeae;
+}
+
+.playbar{
+    position: absolute;
+    bottom: 5px;
+    /* background-color: greenyellow; */
+    background-color: #212121;
+    border-radius:10px ;
+    width: 95%;
+    padding: 8px 8px;;
+    height: 40px;
+}
+.songbuttons{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.songList{
+    margin: 15px 29px 15px 0;  
+}
+.songList ul{
+    margin: 2px 19px;
+}
+.songList ul li{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px;
+    border: solid 0.5px white;
+    border-radius: 5px;
+    margin: 0 19px;
+}
+
+.playnow{
+    display: flex;
+    gap: 4px;
+}
+
+.seekbar{
+    height: 3px;
+    background-color: rgba(255, 255, 255, 0.511);
+    border-radius: 5px;
+    width: 69vw;
+    position: absolute;
+    bottom: 8px;
+}
+.circle{
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.664);
+    position: absolute;
+    top: -6px;
+    left: 0%;
+    transition: left 0.5s;
 }

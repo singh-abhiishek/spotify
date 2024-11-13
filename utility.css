@@ -43,3 +43,32 @@
 .p-1 {
     padding: 10px;
 }
+
+/* Style the scrollbar */
+::-webkit-scrollbar {
+    width: 12px; /* width of the scrollbar */
+    height: 12px; /* height of the horizontal scrollbar */
+}
+
+/* Style the scrollbar track (the background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background-color: #2c2c2c; /* Dark track color */
+    border-radius: 10px; /* Rounded corners for the track */
+}
+
+/* Style the scrollbar thumb (the draggable part of the scrollbar) */
+::-webkit-scrollbar-thumb {
+    background-color: #555; /* Dark gray thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+    border: 3px solid #333; /* A lighter border for better contrast */
+}
+
+/* Style the scrollbar thumb when hovering */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888; /* Lighter thumb color when hovered */
+}
+
+/* Optional: Style the scrollbar corner (where horizontal and vertical scrollbars meet) */
+::-webkit-scrollbar-corner {
+    background-color: #2c2c2c; /* Same as the track color */
+}
