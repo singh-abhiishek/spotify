@@ -47,6 +47,9 @@
     padding: 10px;
 }
 
+.c-1{
+    color: #aeaeae;
+}
 /* Style the scrollbar */
 ::-webkit-scrollbar {
     width: 12px; /* width of the scrollbar */
