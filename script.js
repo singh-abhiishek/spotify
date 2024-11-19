@@ -1,4 +1,3 @@
-console.log("javascript starts");
 let currentSong = new Audio();
 let songs;
 let currFolder;
@@ -25,6 +24,7 @@ function formatTime(seconds) {
 }
 
 async function getSongs(folder) {
+    //get all the songs
 
     let a = fetch(`http://127.0.0.1:5500/${folder}/`);  // Fetch the URL
     currFolder = folder;
@@ -41,6 +41,7 @@ async function getSongs(folder) {
             songs.push(element.href.split(`/${folder}/`)[1])
         }
     }
+
     //show all the songs in the playlist
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
     songUL.innerHTML = ""
@@ -48,7 +49,6 @@ async function getSongs(folder) {
     let x = fetch(`http://127.0.0.1:5500/${folder}/info.json`);
     let y = await x;
     let z = await y.json()
-    console.log(z)
 
     for (const song of songs) {
         let Song_Name = `${song.replaceAll("%20", " ")}`
@@ -70,8 +70,8 @@ async function getSongs(folder) {
 
     //Attach an event listener to each song
     Array.from(document.querySelector(".songList").getElementsByTagName("li")).forEach((e) => {
-        e.addEventListener("click", (elment) => {
-            playMusic(e.querySelector(".info").firstElementChild.innerHTML.trim());
+        e.addEventListener("click", (element) => {
+            playMusic(e.querySelector(".info").firstElementChild.innerHTML + ".mp3");
         })
     })
     return songs;
@@ -124,14 +124,15 @@ async function displayAlbums() {
             //but item.currentTarget:- jispe click evenlisten kr rhe wo milega  
             // console.log(item, item.currentTarget.dataset.folder);
             songs = await getSongs(`songs/${item.currentTarget.dataset.folder}`)
-            playMusic(songs[0], true)
+
+            //on small screen if we click on playlist then left bar will open automatically
+            document.querySelector(".left").style.left = 0
         })
     })
 }
 
 async function main() {
     //get all the songs
-
 
     //display all the albums on the page
     displayAlbums()
@@ -141,8 +142,8 @@ async function main() {
     //Attach an event listener to play and pause
     play.addEventListener("click", () => {
         if (currentSong.paused) {
-            play.src = "assets/pause.svg"
             currentSong.play()
+            play.src = "assets/pause.svg"
         }
         else {
             currentSong.pause()
@@ -192,7 +193,6 @@ async function main() {
 
     //add an event listener for volume button
     document.querySelector(".range").getElementsByTagName("input")[0].addEventListener("change", (e) => {
-        console.log("setting volume to", e.target.value, "/100");
         currentSong.volume = parseInt(e.target.value) / 100
     })
 

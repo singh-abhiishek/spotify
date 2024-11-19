@@ -167,10 +167,9 @@ body {
 
 .play {
     position: absolute;
-    right: 3.7px;
-    top: 104.5px;
+    right: 2.7px;
+    top: 141.5px;
     opacity: var(--a);
-    /* transition: all 0.5s ease; */
 }
 
 .card img {
@@ -254,20 +253,28 @@ body {
 .songList ul li {
     display: flex;
     align-items: center;
-    padding: 8px;
-    border: solid 1px rgba(255, 255, 255, 0.747);
+    padding: 11px 8px;
+    border: solid 1.5px rgba(190, 100, 66, 1);
     border-radius: 5px;
     margin-bottom: 4px;
+    transition: all 0.5s ease;
+}
+.songList ul li:hover {
+    background-color: #5a59594a;
     cursor: pointer;
 }
-.info .songname , .artistname{
+.info .songname {
     font-size: 12px;
+    font-weight: bold;
+    /* color: rgba(135, 132, 132, 0.89)0.689), 0.689);  */
+    color: #c6c6c6;;
 }
 .info .artistname{
     font-size: 10px;
+    color: rgb(128, 128, 128);
 }
 .playnow span{
-    font-size: 13px;
+    font-size: 11px;
 }
 .playnow {
     display: flex;
@@ -414,6 +421,21 @@ body {
         gap: 4px;
         margin-bottom: 5px;
     }
+    .info{
+        width: 116px;
+    }
+    .playnow span {
+        font-size: 10px;
+    }
+    .infoAndPlaynow {
+        gap: 10px;
+    }
+    .info .songname, .artistname {
+        font-size: 9px;
+    }
+    .songList ul li {
+        padding: 14px 8px;
+    }
 }
 
 /* ********************************************************************************************************** */
@@ -422,6 +444,15 @@ body {
     .spotifyPlaylists>h1 {
         margin-left: 14px;
         font-size: 27px;
+    }
+    .info .songname, .artistname {
+        font-size: 9px;
+    }
+    .info {
+        width: 120px;
+    }
+    .playnow span {
+        font-size: 8px;
     }
 }
 
@@ -435,5 +466,14 @@ body {
     .spotifyPlaylists>h1 {
         margin-left: 26px;
         font-size: 26px;
+    }
+    .info .songname, .artistname {
+        font-size: 9px;
+    }
+    .info {
+        width: 120px;
+    }
+    .playnow span {
+        font-size: 8px;
     }
 }
