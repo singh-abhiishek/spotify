@@ -26,7 +26,7 @@ function formatTime(seconds) {
 async function getSongs(folder) {
     //get all the songs
 
-    let a = fetch(`http://127.0.0.1:5500/${folder}/`);  // Fetch the URL
+    let a = fetch(`http://127.0.0.1:5501/${folder}/`);  // Fetch the URL
     currFolder = folder;
     let response = await a;  // Wait for the fetch to resolve
     let temp = await response.text();  // Call text() as a function to extract the body as text
@@ -46,7 +46,7 @@ async function getSongs(folder) {
     let songUL = document.querySelector(".songList").getElementsByTagName("ul")[0];
     songUL.innerHTML = ""
 
-    let x = fetch(`http://127.0.0.1:5500/${folder}/info.json`);
+    let x = fetch(`http://127.0.0.1:5501/${folder}/info.json`);
     let y = await x;
     let z = await y.json()
 
@@ -88,7 +88,7 @@ const playMusic = (track, pause) => {
 }
 
 async function displayAlbums() {
-    let a = fetch(`http://127.0.0.1:5500/songs/`); // Fetch the URL
+    let a = fetch(`http://127.0.0.1:5501/songs/`); // Fetch the URL
     let response = await a;
     let result = await response.text();
     let div = document.createElement("div")
@@ -103,7 +103,7 @@ async function displayAlbums() {
             let folder = e.href.split("/songs/")[1];
 
             //get the meta data of the folder
-            let a = fetch(`http://127.0.0.1:5500/songs/${folder}/info.json`);
+            let a = fetch(`http://127.0.0.1:5501/songs/${folder}/info.json`);
             let response = await a;
             let jsonInfo = await response.json()
 
@@ -184,7 +184,7 @@ async function main() {
     })
 
     //add an event listener for next button
-    next.addEventListener("click", () => {
+    next.addEventListener("click", (e) => {
         let index = songs.indexOf(currentSong.src.split(`/${currFolder}/`)[1]);
         if (index + 1 < songs.length) {
             playMusic(songs[index + 1])
